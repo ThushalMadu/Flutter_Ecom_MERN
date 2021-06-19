@@ -11,10 +11,12 @@ import '../../style.dart';
 class LoginScreen extends StatelessWidget {
   void _onClickFacebook() {
     print("FACEBOOK");
+    Get.toNamed("/home_screen");
   }
 
   void _onClickApple() {
     print("APPLE");
+    Get.toNamed("/home_screen");
   }
 
   void _onClickLabelButton() {
@@ -25,6 +27,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: const EdgeInsets.fromLTRB(20, 40, 20, 10),
         child: Column(
@@ -38,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Flexible(
-                          flex: 4,
+                          flex: 2,
                           child: Container(
                             alignment: Alignment.bottomLeft,
                             child: Text("Let's sign you in",

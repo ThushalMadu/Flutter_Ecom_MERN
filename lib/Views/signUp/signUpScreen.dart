@@ -9,10 +9,12 @@ import '../../style.dart';
 class SignUpScreen extends StatelessWidget {
   void _onClickFacebook() {
     print("FACEBOOK");
+    Get.toNamed("/home_screen");
   }
 
   void _onClickApple() {
     print("APPLE");
+    Get.toNamed("/home_screen");
   }
 
   void _onClickLabelButton() {
@@ -36,7 +38,7 @@ class SignUpScreen extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Flexible(
-                          flex: 4,
+                          flex: 2,
                           child: Container(
                             alignment: Alignment.bottomLeft,
                             child: Text("Create Your",
