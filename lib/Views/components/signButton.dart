@@ -4,6 +4,10 @@ import 'package:get/get.dart';
 import '../../style.dart';
 
 class SignButton extends StatelessWidget {
+  final VoidCallback? onPressSignIn;
+
+  const SignButton(this.onPressSignIn);
+
   @override
   Widget build(BuildContext context) {
     double widthr = MediaQuery.of(context).size.width;
@@ -31,9 +35,7 @@ class SignButton extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      onTap: () {
-        print("dsx");
-      },
+      onTap: onPressSignIn,
     ));
   }
 }

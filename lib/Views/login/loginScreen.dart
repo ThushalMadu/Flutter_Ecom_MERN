@@ -1,3 +1,4 @@
+import 'package:bestarchi/Controller/loginController.dart';
 import 'package:bestarchi/Views/components/AlreadySignUp.dart';
 import 'package:bestarchi/Views/components/appleLogo.dart';
 import 'package:bestarchi/Views/components/fbButton.dart';
@@ -5,23 +6,36 @@ import 'package:bestarchi/Views/components/signButton.dart';
 import 'package:bestarchi/Views/components/textInput.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../style.dart';
 
 class LoginScreen extends StatelessWidget {
+  // how to bind textinput states
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+  final LoginController l = Get.put(LoginController());
+
   void _onClickFacebook() {
-    print("FACEBOOK");
-    Get.toNamed("/home_screen");
+    l.fetchLoginData(emailController.text, passwordController.text);
   }
 
   void _onClickApple() {
-    print("APPLE");
-    Get.toNamed("/home_screen");
+    l.fetchLoginData(emailController.text, passwordController.text);
+  }
+
+  void _onClickSignIn() {
+    l.fetchLoginData(emailController.text, passwordController.text);
   }
 
   void _onClickLabelButton() {
-    print("APPLE");
-    Get.toNamed("/signup_screen");
+    // print("APPLE");
+    // how to get textinput states.
+
+    print(emailController.text);
+    print(passwordController.text);
+
+    // Get.toNamed("/signup_screen");
   }
 
   @override
@@ -44,8 +58,8 @@ class LoginScreen extends StatelessWidget {
                           flex: 2,
                           child: Container(
                             alignment: Alignment.bottomLeft,
-                            child: Text("Let's sign you in",
-                                style: SignupFont1TextStyle),
+                            child: Obx(() => Text("${l.isLoginLoading}",
+                                style: SignupFont1TextStyle)),
                           )),
                       Flexible(
                           flex: 1,
@@ -67,32 +81,46 @@ class LoginScreen extends StatelessWidget {
                       Flexible(
                           flex: 1,
                           child: TextInput(
-                              false, "Phone number, Email or User name")),
+                              false,
+                              "Phone number, Email or User name",
+                              emailController)),
                       SizedBox(height: 50),
-                      Flexible(flex: 1, child: TextInput(true, "Password")),
+                      Flexible(
+                          flex: 1,
+                          child:
+                              TextInput(true, "Password", passwordController)),
                     ],
                   ),
                 )),
-            Expanded(flex: 1, child: SignButton()),
+            Expanded(flex: 1, child: SignButton(_onClickSignIn)),
             Expanded(
                 flex: 2,
-                child: Column(
-                  children: <Widget>[
-                    // Spacer(),
-                    Expanded(
-                        flex: 2,
-                        child: FbButton(
-                            "Sign In with facebook", _onClickFacebook)),
-                    Expanded(
-                        flex: 2,
-                        child: AppleLogo("Sign In with Apple", _onClickApple)),
-                    Expanded(
-                        flex: 1,
-                        child: AlreadySignUp(
-                            "Back To Regsiter", _onClickLabelButton)),
-                    Spacer(),
-                  ],
-                )),
+                child: Obx(() {
+                  if (l.isLoginLoading.value) {
+                    return Center(
+                        child: Lottie.asset('assets/images/loaderLottie.json',
+                            width: 100, height: 100));
+                  } else {
+                    return Column(
+                      children: <Widget>[
+                        // Spacer(),
+                        Expanded(
+                            flex: 2,
+                            child: FbButton(
+                                "Sign In with facebook", _onClickFacebook)),
+                        Expanded(
+                            flex: 2,
+                            child:
+                                AppleLogo("Sign In with Apple", _onClickApple)),
+                        Expanded(
+                            flex: 1,
+                            child: AlreadySignUp(
+                                "Back To Regsiter", _onClickLabelButton)),
+                        Spacer(),
+                      ],
+                    );
+                  }
+                })),
           ],
         ),
       ),

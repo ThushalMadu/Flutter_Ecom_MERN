@@ -13,8 +13,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final u = Get.put(ItemController());
-  final c = Get.put(BannerController());
+  // final u = Get.put(ItemController());
+  // final c = Get.put(BannerController());
 
   // This widget is the root of your application.
   @override

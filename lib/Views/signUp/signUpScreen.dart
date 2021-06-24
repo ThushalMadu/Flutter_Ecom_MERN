@@ -1,3 +1,5 @@
+import 'package:bestarchi/Controller/ItemController.dart';
+import 'package:bestarchi/Controller/LoginController.dart';
 import 'package:bestarchi/Views/components/AlreadySignUp.dart';
 import 'package:bestarchi/Views/components/appleLogo.dart';
 import 'package:bestarchi/Views/components/fbButton.dart';
@@ -7,9 +9,9 @@ import 'package:get/get.dart';
 import '../../style.dart';
 
 class SignUpScreen extends StatelessWidget {
-  void _onClickFacebook() {
-    print("FACEBOOK");
-    Get.toNamed("/home_screen");
+  void _onClickFacebook() async {
+    print("FACEBOOK Login");
+    // Get.toNamed("/home_screen");
   }
 
   void _onClickApple() {
@@ -22,6 +24,8 @@ class SignUpScreen extends StatelessWidget {
     Get.toNamed("/login_screen");
   }
 
+  // Loading code how to getx update state
+  // Obx(() => Text('${u.isLoading}'))
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,11 +4,18 @@ import 'package:get/get.dart';
 
 import '../../style.dart';
 
-class TextInput extends StatelessWidget {
+class TextInput extends StatefulWidget {
   final bool passText;
   final String placeHolder;
+  TextEditingController textEditingController;
 
-  TextInput(this.passText, this.placeHolder);
+  TextInput(this.passText, this.placeHolder, this.textEditingController);
+
+  @override
+  _TextInputState createState() => _TextInputState();
+}
+
+class _TextInputState extends State<TextInput> {
   final u = Get.put(UserController());
 
   @override
@@ -27,9 +34,9 @@ class TextInput extends StatelessWidget {
       alignment: Alignment.center,
       child: TextField(
         style: TextInputStyle,
-        obscureText: passText,
+        obscureText: widget.passText,
         decoration: InputDecoration(
-          hintText: placeHolder,
+          hintText: widget.placeHolder,
           focusedBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(
               const Radius.circular(20.0),
@@ -43,10 +50,11 @@ class TextInput extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white, width: 0.0),
           ),
         ),
-        onChanged: (text) {
-          print('$text');
-          u.updateUserName(text);
-        },
+        controller: widget.textEditingController,
+        // onChanged: (text) {
+        //   print('$text');
+        //   u.updateUserName(text);
+        // },
       ),
     );
   }

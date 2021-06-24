@@ -19,6 +19,7 @@ class ItemController extends GetxController {
       print(statics);
       if (statics != null) {
         itemList.assignAll(statics);
+        isLoading(false);
       } else {
         print("Not get value");
       }
