@@ -1,7 +1,9 @@
 import 'package:bestarchi/Controller/bannerController.dart';
+import 'package:bestarchi/Views/cart/cartScreen.dart';
 import 'package:bestarchi/Views/home/homeScreen.dart';
 import 'package:bestarchi/Views/login/loginScreen.dart';
 import 'package:bestarchi/Views/signUp/signUpScreen.dart';
+import 'package:bestarchi/Views/singleProduct/singleProductScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/login_screen", page: () => LoginScreen()),
         GetPage(name: "/signup_screen", page: () => SignUpScreen()),
         GetPage(name: "/home_screen", page: () => HomeScreen()),
+        GetPage(name: "/signle_screen", page: () => SingleProductScreen()),
+        GetPage(name: "/cart_screen", page: () => CartScreen()),
       ],
       initialRoute: "/",
     );

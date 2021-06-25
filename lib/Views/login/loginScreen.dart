@@ -55,12 +55,12 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Flexible(
-                          flex: 2,
-                          child: Container(
+                        flex: 2,
+                        child: Container(
                             alignment: Alignment.bottomLeft,
-                            child: Obx(() => Text("${l.isLoginLoading}",
+                            child: Text("Lets Sign You In",
                                 style: SignupFont1TextStyle)),
-                          )),
+                      ),
                       Flexible(
                           flex: 1,
                           child: Container(

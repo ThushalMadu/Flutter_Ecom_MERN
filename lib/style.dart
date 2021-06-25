@@ -70,6 +70,11 @@ const ItemListStyle = TextStyle(
     fontWeight: FontWeight.w300,
     fontSize: ItemListSize,
     color: Colors.black);
+const SingleTitleItemListStyle = TextStyle(
+    fontFamily: FontNameDefault2,
+    fontWeight: FontWeight.w600,
+    fontSize: MediumTextSize,
+    color: Colors.black);
 const ItemListPriceStyle = TextStyle(
     fontFamily: FontNameDefault2,
     fontWeight: FontWeight.w600,
@@ -79,6 +84,11 @@ const HomeTextStyle = TextStyle(
     fontFamily: FontNameDefault2,
     fontWeight: FontWeight.w600,
     fontSize: HomeTextSize,
+    color: Colors.black);
+const YouCartTextStyle = TextStyle(
+    fontFamily: FontNameDefault2,
+    fontWeight: FontWeight.w600,
+    fontSize: LargeTextSize,
     color: Colors.black);
 const ItemDesStyle = TextStyle(
     fontFamily: FontNameDefault2,
